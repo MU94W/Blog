@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Free on Sinking...</title>
+    <link>https://mu94w.github.io/blog/tags/free/</link>
+    <description>Recent content in Free on Sinking...</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 04 Mar 2018 15:50:10 +0800</lastBuildDate>
+    
+	<atom:link href="https://mu94w.github.io/blog/tags/free/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>免费高质量资源</title>
+      <link>https://mu94w.github.io/blog/posts/free-resources/</link>
+      <pubDate>Sun, 04 Mar 2018 15:50:10 +0800</pubDate>
+      
+      <guid>https://mu94w.github.io/blog/posts/free-resources/</guid>
+      <description>免费且高质量的资源（如图片、歌曲等）比较难找。这里列举一些站点，提供了这些资源 图片 https://unsplash.com/</description>
+    </item>
+    
+  </channel>
+</rss>
