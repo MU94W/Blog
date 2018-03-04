@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Sinking...  | 使用LaTeX进行论文写作 取代Word</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.36" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    <link href='https://mu94w.github.io/blog/dist/main.css' rel='stylesheet' type="text/css" />
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="使用LaTeX进行论文写作 取代Word" />
+<meta property="og:description" content="前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mu94w.github.io/blog/posts/use-latex-for-paper-instead-of-word/" />
+
+
+
+<meta property="article:published_time" content="2018-02-11T20:03:04&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-02-11T20:03:04&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="使用LaTeX进行论文写作 取代Word">
+<meta itemprop="description" content="前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文">
+
+
+<meta itemprop="datePublished" content="2018-02-11T20:03:04&#43;08:00" />
+<meta itemprop="dateModified" content="2018-02-11T20:03:04&#43;08:00" />
+<meta itemprop="wordCount" content="1218">
+
+
+
+<meta itemprop="keywords" content="LaTex," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用LaTeX进行论文写作 取代Word"/>
+<meta name="twitter:description" content="前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://mu94w.github.io/blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Sinking...
+    </a>
+    <div class="flex-l items-center">
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/blog/posts/" title="Posts page">
+              Posts
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <p class="f6 b helvetica tracked">
+          POSTS
+        </p>
+        <h1 class="f1">
+          使用LaTeX进行论文写作 取代Word
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
+        
+
+<p>前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题：</p>
+
+<ul>
+<li>虽然利用各种可视化的按钮也能让文章的排版很漂亮——在精细调整下，尤其是图形大小和位置；但很费劲。</li>
+<li>虽然使用Word模板减少工作量，而且会议一般提供Word论文模板；但模板所使用的Word版本通常很老(2003版)，和流行的Word版本兼容性不好。</li>
+<li>另外，在Mac上使用MS Word编辑更是一种痛苦——Mac版的Word不稳定，在编辑复杂的文档时常崩溃。</li>
+</ul>
+
+<p>当然使用LaTeX写的话，要是自己控制每一个细节，也很费心力；但是使用会议提供的LaTeX模板比使用Word模板更省心，而且在Mac上也更稳定。</p>
+
+<p>下面是一些我在Mac上使用LaTeX的经验。</p>
+
+<h2 id="在mac上安装latex">在Mac上安装LaTeX</h2>
+
+<p><a href="https://www.latex-project.org/get/#tex-distributions">LaTeX</a>网站上有对应不同操作系统的LaTeX软件可供下载。
+在Mac上使用，我推荐下载完整版的<a href="http://www.tug.org/mactex/mactex-download.html">MacTeX</a>。不过要提醒一下，完整版的大小有~3GB。下载下来后，安装很简单，按照提示就好了。</p>
+
+<h2 id="使用vs-code编辑latex文档">使用VS Code编辑LaTeX文档</h2>
+
+<p>将编辑好的LaTeX文档转换为pdf文档需要进行编译的操作。TeXShop是完整版的LaTeX自带的一款编辑LaTeX的GUI软件，写好文本文件后，按几个按钮就可以得到排版好的pdf文件。
+但是我实在是习惯了vim的编辑模式，不习惯一边编辑一边使用触摸板。而只用Vim编辑LaTeX文档，编译输出pdf又比较麻烦，因此我选择了<a href="https://code.visualstudio.com">VS Code</a>来编辑LaTeX文档。</p>
+
+<p>VS Code是一款可扩展功能的文本编辑器，有丰富的第三方插件可以使用。我安装了Vim扩展插件来模拟Vim的编辑模式，又另外安装了一个管理LaTeX编译链的工具——LaTeX Workshop。这两款插件都可以在编辑器侧边栏的“扩展”里搜索到。</p>
+
+<p>LaTeX Workshop编译LaTeX文件的默认配置存放在VS Code的Preference里面，可以按<code>Cmd + ,</code>打开。
+
+<figure >
+    
+        <img src="/images/use-latex-for-paper-instead-of-word-1.png" />
+    
+    
+</figure>
+
+
+<figure >
+    
+        <img src="/images/use-latex-for-paper-instead-of-word-2.png" />
+    
+    
+</figure>
+</p>
+
+<p>编辑好文档后，可以通过按下<code>Cmd + shift + p</code>，执行<code>LaTeX Workshop: Build LaTeX project</code>命令，调用LaTeX Workshop的编译链来完成编译。</p>
+
+<h3 id="文档有unicode字符怎么办">文档有Unicode字符怎么办？</h3>
+
+<p>在文档的头部加入<code>\usepackage[utf8]{inputenc}</code>这一行，就能够处理Unicode字符了。</p>
+
+<h3 id="跨栏图片">跨栏图片</h3>
+
+<p>将<code>\begin{figure} ... \end{figure}</code>改为<code>\begin{figure*} ... \end{figure*}</code>即可（只需要加上两个<code>*</code>号）。
+另外，单栏图片的宽度我通常定为3.5in，双栏则为7in。</p>
+
+<h3 id="多行注释">多行注释</h3>
+
+<p>我们常会遇到需要注释多行的需求，而使用<code>%</code>这个单行注释符完成这项任务比较麻烦——主要体现在取消注释时。
+在文档的头部加入<code>\usepackage{verbatim}</code>这一行，我们便可以进行多行注释了。
+具体的用法是，在想要注释的一段的前后加入分别加上<code>\begin{comment}</code>和<code>\end{comment}</code>这两行即可。想要取消多行注释时，只需要用<code>%</code>注释掉这两汉就可以啦。</p>
+
+<!-- ### 开启synctex 更方便修改 -->
+
+<p>暂时介绍到这里，以后会记录分享更多经验~ :P</p>
+
+      </div>
+    </article>
+    <aside class="ph3 mt2 mt6-ns">
+      
+
+
+
+
+
+
+
+
+    </aside>
+  </div>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://mu94w.github.io/blog/" >
+    &copy; 2018 Sinking...
+  </a>
+  
+
+
+
+
+
+
+
+
+  </div>
+</footer>
+
+    <script src="https://mu94w.github.io/blog/dist/app.bundle.js" async></script>
+
+  </body>
+</html>
