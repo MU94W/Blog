@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Sinking ...  | Sum of Squares</title>
+    <title>Sinking ...  | Thoughts About RNN and Causal CNN</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -22,20 +22,16 @@
 
     
 
-    <meta property="og:title" content="Sum of Squares" />
-<meta property="og:description" content="最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n&#43;1)(2n&#43;1)}{6} \] 这" />
+    <meta property="og:title" content="Thoughts About RNN and Causal CNN" />
+<meta property="og:description" content="RNN和Causal CNN都可以作为序列生成网络的模块选择。 我最近用TensorFlow实现自回归Causal CNN时，想到可以用RNN的思" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mu94w.github.io/blog/posts/sum-of-squares/" />
+<meta property="og:url" content="https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/" />
 
 
 
-<meta property="article:published_time" content="2018-03-10T14:40:29&#43;08:00"/>
+<meta property="article:published_time" content="2018-03-27T16:45:48&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-03-10T14:40:29&#43;08:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-03-27T16:45:48&#43;08:00"/>
 
 
 
@@ -43,20 +39,24 @@
 
 
 
-<meta itemprop="name" content="Sum of Squares">
-<meta itemprop="description" content="最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n&#43;1)(2n&#43;1)}{6} \] 这">
-
-
-<meta itemprop="datePublished" content="2018-03-10T14:40:29&#43;08:00" />
-<meta itemprop="dateModified" content="2018-03-10T14:40:29&#43;08:00" />
-<meta itemprop="wordCount" content="488">
 
 
 
-<meta itemprop="keywords" content="mathmatics," />
+
+<meta itemprop="name" content="Thoughts About RNN and Causal CNN">
+<meta itemprop="description" content="RNN和Causal CNN都可以作为序列生成网络的模块选择。 我最近用TensorFlow实现自回归Causal CNN时，想到可以用RNN的思">
+
+
+<meta itemprop="datePublished" content="2018-03-27T16:45:48&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-27T16:45:48&#43;08:00" />
+<meta itemprop="wordCount" content="804">
+
+
+
+<meta itemprop="keywords" content="neural networks," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Sum of Squares"/>
-<meta name="twitter:description" content="最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n&#43;1)(2n&#43;1)}{6} \] 这"/>
+<meta name="twitter:title" content="Thoughts About RNN and Causal CNN"/>
+<meta name="twitter:description" content="RNN和Causal CNN都可以作为序列生成网络的模块选择。 我最近用TensorFlow实现自回归Causal CNN时，想到可以用RNN的思"/>
 
   </head>
 
@@ -116,51 +116,80 @@
           POSTS
         </p>
         <h1 class="f1">
-          Sum of Squares
+          Thoughts About RNN and Causal CNN
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<p>最近做<a href="https://projecteuler.net">Project Euler</a>，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。
-\[ \sum_{k=1}^{n} k^{2} = \frac{n(n+1)(2n+1)}{6} \]
-这个公式不像自然数列的和那样简单直接，可以通过所谓的<a href="https://zh.wikipedia.org/wiki/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97">高斯求和</a>快速得出。
-事实上，自然数的平方序列，距离首尾各k个位置的两个数的和并不是一个常数（针对该数列而言）。因此，我想高斯也不能一眼看出来答案:P</p>
+<p><a href="https://en.wikipedia.org/wiki/Recurrent_neural_network">RNN</a>和<a href="https://www.quora.com/What-are-causal-convolutions">Causal CNN</a>都可以作为序列生成网络的模块选择。</p>
 
-<p>正发愁，突然想到离散求和积分间的关系，便尝试用<a href="https://en.wikipedia.org/wiki/Calculus">微积分</a>来解决。事实证明，这个思路不仅可以解决平方和问题，还可以解决更高幂次数列求和问题:）</p>
+<p>我最近用TensorFlow实现<a href="https://en.wikipedia.org/wiki/Autoregressive_model">自回归</a>Causal CNN时，想到可以用RNN的思路来写这个模块——即用一种“状态”的思路。</p>
 
-<p>\[ S(n) = \sum_{k=1}^{n} a(k), where: a(k) = k^2 \]</p>
+<p>首先抽象一下RNN的计算过程：</p>
 
-<p>\[ S(n) = P(n) + Q(n) \]</p>
 
-<p>\[ P(n) = \int_0^n a(x) dx \]</p>
+<figure >
+    
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Recurrent_neural_network_unfold.svg" />
+    
+    
+</figure>
 
-<p>\[ Q(n) = \sum_{k=1}^{n} \delta(k), where: \delta(k) = a(k) - (P(k) - P(k-1)) \]</p>
 
-<p>\[ P(n) = \frac{n^3}{3} \]</p>
+<p>\[ O_t,h_t = f(x_t,h_{t-1};\theta) \]</p>
 
-<p>\[ \begin{eqnarray}
-        \delta(k) &amp;=&amp; k^2 - \frac{k^3}{3} + \frac{(k-1)^3}{3}
-                  &amp;=&amp; k-\frac{1}{3}
-    \end{eqnarray} \]</p>
+<p>其中，</p>
 
-<p>\[ \begin{eqnarray}
-        Q(n) &amp;=&amp; \sum_{k=1}^{n} k-\frac{1}{3}
-             &amp;=&amp; \frac{n(n+1)}{2} - \frac{n}{3}
-    \end{eqnarray} \]</p>
+<ul>
+<li>\(f\)为一个非线性映射，\(\theta\)为参数；</li>
+<li>\(O_t,h_t\)分别为\(t\)时间步的输出和该RNN单元的状态；</li>
+<li>\(x_t,h_{t-1}\)分别为此时间步的输入和上一时刻的状态。</li>
+</ul>
 
-<p>\[ \begin{eqnarray}
-        S(n) &amp;=&amp; \frac{n^3}{3} + \frac{n(n+1)}{2} - \frac{n}{3} \\<br />
-             &amp;=&amp; \frac{n(n+1)(2n+1)}{6}
-    \end{eqnarray} \]</p>
+<p>Causal CNN的计算则可以这样表示：</p>
 
-<p>上面这几行推导，核心在于\(\delta(k)\)这项，这项将离散求和和连续积分联系了起来。在推导过程中，可以看到这项将当前数列的幂次降低了1，因此就可以利用自然数列求和公式了。
-更高次幂的数列求和也可以按照这样的思路做，只会多用到一点点<a href="https://en.wikipedia.org/wiki/Combination">组合数</a>的知识:P</p>
+<p>\[ O_t = Conv(z_t;\theta) \]</p>
 
-<p>试试在纸上画出来吧，可以看得更清楚。后面有时间我会把解释用的图放上来。</p>
+<p>\[ z_t = [x_{t-N+1},&hellip;,x_t] = h_{t-1} + [x_t] \]</p>
 
-<p>虽然这种简单的推导前人做过了（不过我在网上还没有找到相关链接），弄出来还是很开心的XD</p>
+<p>\[ h_t = [x_{t-N+2},&hellip;,x_t] = h_{t-1}[1:] + [x_t] \]</p>
+
+<p>其中，</p>
+
+<ul>
+<li>\(Conv\)是一个感受野为\(N\)的一维卷积运算，\(\theta\)为参数；</li>
+<li>\(O_t\)是Causal CNN单元\(t\)时刻的输出，不考虑batch阶其形状为\((out\_channels,)\)；</li>
+<li>\(z_t\)是卷积运算的输入，不考虑batch阶其形状为\((N, in\_channels)\)；</li>
+<li>\(h_t\)是Causal CNN单元的\(t\)时刻状态，不考虑batch阶其形状为\((N-1, in\_channels)\)。</li>
+</ul>
+
+<p>将Causal CNN的\(z_t\)及\(h_t\)的计算用线性代数的方式可以进一步表示为：</p>
+
+<p>\[ z_t = h_{t-1}W_{hz} + x_tV_{xz} \]</p>
+
+<p>\[ h_t = h_{t-1}W_{hh} + x_tV_{xh} \]</p>
+
+<p>\[ W_{hz} = \begin{bmatrix}1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\<br />
+                             0 &amp; 1 &amp; 0 &amp; 0 &amp; 0\\<br />
+                             0 &amp; 0 &amp; 1 &amp; 0 &amp; 0\\<br />
+                             0 &amp; 0 &amp; 0 &amp; 1 &amp; 0\end{bmatrix},
+    V_{xz} = \begin{bmatrix}0 &amp; 0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} \]</p>
+
+<p>\[ W_{hh} = \begin{bmatrix}0 &amp; 0 &amp; 0 &amp; 0\\<br />
+                             1 &amp; 0 &amp; 0 &amp; 0\\<br />
+                             0 &amp; 1 &amp; 0 &amp; 0\\<br />
+                             0 &amp; 0 &amp; 1 &amp; 0\end{bmatrix},
+    V_{xh} = \begin{bmatrix}0 &amp; 0 &amp; 0 &amp; 1\end{bmatrix} \]</p>
+
+<p>可以看出，Causal CNN的单步运算实际上也可以看做RNN运算。
+实际上，RNN的全称为Recurrent Neural Network，中文意为循环神经网络，
+RNN并没有限制其内部运算不能用卷积的形式实现。</p>
+
+<p>不过一般意义上的RNN和Causal CNN有一点很重要的区别在于，
+RNN传递的隐状态是一个将过去所有信息压缩到一个<strong><em>固定维度</em></strong>的高维空间的向量；
+而Causal CNN传递的则是一列<strong><em>固定长度</em></strong>的过去时间步的输入。</p>
 
       </div>
     </article>
@@ -181,14 +210,14 @@
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/" class="link ph2 pv2 db black">
+          <a href="https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/" class="link ph2 pv2 db black o-50">
             Thoughts About RNN and Causal CNN
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="https://mu94w.github.io/blog/posts/sum-of-squares/" class="link ph2 pv2 db black o-50">
+          <a href="https://mu94w.github.io/blog/posts/sum-of-squares/" class="link ph2 pv2 db black">
             Sum of Squares
           </a>
         </li>

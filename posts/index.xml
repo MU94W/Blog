@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Sinking ...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 10 Mar 2018 14:40:29 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Mar 2018 16:45:48 +0800</lastBuildDate>
     
 	<atom:link href="https://mu94w.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Thoughts About RNN and Causal CNN</title>
+      <link>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</link>
+      <pubDate>Tue, 27 Mar 2018 16:45:48 +0800</pubDate>
+      
+      <guid>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</guid>
+      <description>RNN和Causal CNN都可以作为序列生成网络的模块选择。 我最近用TensorFlow实现自回归Causal CNN时，想到可以用RNN的思</description>
+    </item>
     
     <item>
       <title>Sum of Squares</title>

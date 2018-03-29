@@ -3,6 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</loc>
+    <lastmod>2018-03-27T16:45:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://mu94w.github.io/blog/posts/sum-of-squares/</loc>
     <lastmod>2018-03-10T14:40:29+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -65,8 +72,15 @@
   </url>
   
   <url>
+    <loc>https://mu94w.github.io/blog/tags/neural-networks/</loc>
+    <lastmod>2018-03-27T16:45:48+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mu94w.github.io/blog/posts/</loc>
-    <lastmod>2018-03-10T14:40:29+08:00</lastmod>
+    <lastmod>2018-03-27T16:45:48+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -87,7 +101,7 @@
   
   <url>
     <loc>https://mu94w.github.io/blog/</loc>
-    <lastmod>2018-03-10T14:40:29+08:00</lastmod>
+    <lastmod>2018-03-27T16:45:48+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
