@@ -49,7 +49,7 @@
 
 <meta itemprop="datePublished" content="2018-03-27T16:45:48&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-27T16:45:48&#43;08:00" />
-<meta itemprop="wordCount" content="804">
+<meta itemprop="wordCount" content="923">
 
 
 
@@ -190,6 +190,9 @@ RNN并没有限制其内部运算不能用卷积的形式实现。</p>
 <p>不过一般意义上的RNN和Causal CNN有一点很重要的区别在于，
 RNN传递的隐状态是一个将过去所有信息压缩到一个<strong><em>固定维度</em></strong>的高维空间的向量；
 而Causal CNN传递的则是一列<strong><em>固定长度</em></strong>的过去时间步的输入。</p>
+
+<p>当然，需要说明的一点是：上面所说的这种思考方法仅对Causal CNN在自回归合成阶段时有帮助作用。
+在训练阶段，可以利用shifted CNN或masked CNN来实现Causal CNN。CNN的并行特性可以帮助自回归模型极大地提高训练速度。</p>
 
       </div>
     </article>
