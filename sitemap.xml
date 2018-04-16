@@ -3,6 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mu94w.github.io/blog/posts/tensorflow-golang-server/</loc>
+    <lastmod>2018-04-16T16:32:11+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</loc>
     <lastmod>2018-03-27T16:45:48+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -51,6 +58,13 @@
   </url>
   
   <url>
+    <loc>https://mu94w.github.io/blog/tags/golang/</loc>
+    <lastmod>2018-04-16T16:32:11+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://mu94w.github.io/blog/tags/latex/</loc>
     <lastmod>2018-02-11T20:03:04+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -80,7 +94,7 @@
   
   <url>
     <loc>https://mu94w.github.io/blog/posts/</loc>
-    <lastmod>2018-03-27T16:45:48+08:00</lastmod>
+    <lastmod>2018-04-16T16:32:11+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -101,7 +115,7 @@
   
   <url>
     <loc>https://mu94w.github.io/blog/</loc>
-    <lastmod>2018-03-27T16:45:48+08:00</lastmod>
+    <lastmod>2018-04-16T16:32:11+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -109,6 +123,13 @@
   <url>
     <loc>https://mu94w.github.io/blog/tags/</loc>
     <lastmod>2018-03-04T15:50:10+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mu94w.github.io/blog/tags/tensorflow/</loc>
+    <lastmod>2018-04-16T16:32:11+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
