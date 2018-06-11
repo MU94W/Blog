@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Sinking ...  | Tensorflow Golang Server</title>
+    <title>Sinking ...  | Using Shell Pipes With Go</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -22,20 +22,16 @@
 
     
 
-    <meta property="og:title" content="Tensorflow Golang Server" />
-<meta property="og:description" content="这篇博文记录分享一下我在使用golang（以下简称Go）构建TensorFlow服务端方面的一些经验。 TensorFlow这里不多介绍了，相" />
+    <meta property="og:title" content="Using Shell Pipes With Go" />
+<meta property="og:description" content="这里介绍一下如何在golang中使用shell的管道。 相信使用golang的同学在和其他人合作的时候会有这个需求。 这篇博文绝大部分内容来源" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://mu94w.github.io/blog/posts/tensorflow-golang-server/" />
+<meta property="og:url" content="https://mu94w.github.io/blog/posts/using-shell-pipes-with-go/" />
 
 
 
-<meta property="article:published_time" content="2018-04-16T16:32:11&#43;08:00"/>
+<meta property="article:published_time" content="2018-06-02T15:31:33&#43;08:00"/>
 
-<meta property="article:modified_time" content="2018-04-16T16:32:11&#43;08:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-06-02T15:31:33&#43;08:00"/>
 
 
 
@@ -43,20 +39,24 @@
 
 
 
-<meta itemprop="name" content="Tensorflow Golang Server">
-<meta itemprop="description" content="这篇博文记录分享一下我在使用golang（以下简称Go）构建TensorFlow服务端方面的一些经验。 TensorFlow这里不多介绍了，相">
-
-
-<meta itemprop="datePublished" content="2018-04-16T16:32:11&#43;08:00" />
-<meta itemprop="dateModified" content="2018-04-16T16:32:11&#43;08:00" />
-<meta itemprop="wordCount" content="680">
 
 
 
-<meta itemprop="keywords" content="golang,TensorFlow," />
+
+<meta itemprop="name" content="Using Shell Pipes With Go">
+<meta itemprop="description" content="这里介绍一下如何在golang中使用shell的管道。 相信使用golang的同学在和其他人合作的时候会有这个需求。 这篇博文绝大部分内容来源">
+
+
+<meta itemprop="datePublished" content="2018-06-02T15:31:33&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-02T15:31:33&#43;08:00" />
+<meta itemprop="wordCount" content="122">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tensorflow Golang Server"/>
-<meta name="twitter:description" content="这篇博文记录分享一下我在使用golang（以下简称Go）构建TensorFlow服务端方面的一些经验。 TensorFlow这里不多介绍了，相"/>
+<meta name="twitter:title" content="Using Shell Pipes With Go"/>
+<meta name="twitter:description" content="这里介绍一下如何在golang中使用shell的管道。 相信使用golang的同学在和其他人合作的时候会有这个需求。 这篇博文绝大部分内容来源"/>
 
   </head>
 
@@ -116,33 +116,19 @@
           POSTS
         </p>
         <h1 class="f1">
-          Tensorflow Golang Server
+          Using Shell Pipes With Go
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
-        <p>这篇博文记录分享一下我在使用<a href="https://golang.org/">golang</a>（以下简称Go）构建<a href="https://www.tensorflow.org/">TensorFlow</a>服务端方面的一些经验。</p>
+        <p>这里介绍一下如何在golang中使用shell的管道。
+相信使用golang的同学在和其他人合作的时候会有这个需求。</p>
 
-<p>TensorFlow这里不多介绍了，相信对这篇文章感兴趣的人对它已经有了一定程度的了解。
-使用训练好的TensorFlow模型（推荐使用python写训练脚本）搭建Web服务，基本逻辑是
-服务端进程加载模型（计算图），挂起服务。其中，模型（计算图）并不用为服务端程序重新编写，
-直接使用训练阶段导出的图和参数即可。可以看到，这一步是通用的，对不同模型来说。
-当然，由于模型（计算图）执行的都是数值计算，而服务端拿到的请求（request）内容是有很大差别的，
-对不同任务来说。也就是说，需要一个中间过程，来处理拿到的请求，再送给模型（计算图），
-最后将结果再过一个中间过程，送出响应（response）。</p>
+<p>这篇博文绝大部分内容来源于博文——<a href="https://flaviocopes.com/go-shell-pipes/">USING SHELL PIPES WITH GO</a>。
+所以我的角色仅是一名实践型搬运工。</p>
 
-<p>那么接下来需要考虑的问题就是，选用哪种工具来搭建服务端。
-一般来说，python可以作为一个快速搭建服务的选择。
-但是，python本身并发性不够好，而且将python对象送给计算图及从图中拿到结果生成python对象速度较慢（忘记从哪儿听来的了）。
-因此，一些人选择使用C++来搭建服务。
-然而，C++的使用难度可以说比python是要高一些的。
-我到现在还不知道怎么用C++搭建一个支持并发的Web服务……
-如果你也碰到了上述问题，那么Go可以说是你的最佳选择了。
-Go的goroutine提供了简单的并发（当然，如果使用其自带的net/http包的话，连goroutine都不用写了），
-而且，Go自带垃圾回收机制，不用像写C++那样痛苦。此外，编译后的Go程序，执行效率高于python。</p>
+<p>下面首先给出一份从pipe获取输入的golang示例代码。</p>
 
-<p>下面给出我的Go语言服务端模板代码。</p>
-
-<script src="https://gist.github.com/MU94W/72c6b40e52531431df0f34ddcfa177ff.js"></script>
+<script src="https://gist.github.com/MU94W/420392ebb4689a94ce025a3facd1e747.js"></script>
 
       </div>
     </article>
@@ -163,14 +149,14 @@ Go的goroutine提供了简单的并发（当然，如果使用其自带的net/ht
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="https://mu94w.github.io/blog/posts/using-shell-pipes-with-go/" class="link ph2 pv2 db black">
+          <a href="https://mu94w.github.io/blog/posts/using-shell-pipes-with-go/" class="link ph2 pv2 db black o-50">
             Using Shell Pipes With Go
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="https://mu94w.github.io/blog/posts/tensorflow-golang-server/" class="link ph2 pv2 db black o-50">
+          <a href="https://mu94w.github.io/blog/posts/tensorflow-golang-server/" class="link ph2 pv2 db black">
             Tensorflow Golang Server
           </a>
         </li>

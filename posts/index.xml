@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Sinking ...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 16 Apr 2018 16:32:11 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 02 Jun 2018 15:31:33 +0800</lastBuildDate>
     
 	<atom:link href="https://mu94w.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Using Shell Pipes With Go</title>
+      <link>https://mu94w.github.io/blog/posts/using-shell-pipes-with-go/</link>
+      <pubDate>Sat, 02 Jun 2018 15:31:33 +0800</pubDate>
+      
+      <guid>https://mu94w.github.io/blog/posts/using-shell-pipes-with-go/</guid>
+      <description>这里介绍一下如何在golang中使用shell的管道。 相信使用golang的同学在和其他人合作的时候会有这个需求。 这篇博文绝大部分内容来源</description>
+    </item>
     
     <item>
       <title>Tensorflow Golang Server</title>
