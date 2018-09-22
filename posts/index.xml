@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Sinking ...</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 22 Aug 2018 16:26:07 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 21 Sep 2018 16:44:27 +0800</lastBuildDate>
     
 	<atom:link href="https://mu94w.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Save Tensorflow Model for Serving</title>
+      <link>https://mu94w.github.io/blog/posts/save-tensorflow-model-for-serving/</link>
+      <pubDate>Fri, 21 Sep 2018 16:44:27 +0800</pubDate>
+      
+      <guid>https://mu94w.github.io/blog/posts/save-tensorflow-model-for-serving/</guid>
+      <description>这篇文章探讨一下如何优雅地保存训练好的TensorFlow模型，使得服务端能够方便地调用模型。 一个简单的方法 首先介绍一个最简单的方法将模型保</description>
+    </item>
     
     <item>
       <title>Lemon</title>
