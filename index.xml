@@ -13,91 +13,91 @@
     
     <item>
       <title>Save Tensorflow Model for Serving</title>
-      <link>https://mu94w.github.io/blog/2018/09/21/save-tensorflow-model-for-serving/</link>
+      <link>https://mu94w.github.io/blog/posts/save-tensorflow-model-for-serving/</link>
       <pubDate>Fri, 21 Sep 2018 16:44:27 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/09/21/save-tensorflow-model-for-serving/</guid>
+      <guid>https://mu94w.github.io/blog/posts/save-tensorflow-model-for-serving/</guid>
       <description>这篇文章探讨一下如何优雅地保存训练好的TensorFlow模型，使得服务端能够方便地调用模型。 一个简单的方法 首先介绍一个最简单的方法将模型保</description>
     </item>
     
     <item>
       <title>Lemon</title>
-      <link>https://mu94w.github.io/blog/2018/08/22/lemon/</link>
+      <link>https://mu94w.github.io/blog/posts/lemon/</link>
       <pubDate>Wed, 22 Aug 2018 16:26:07 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/08/22/lemon/</guid>
+      <guid>https://mu94w.github.io/blog/posts/lemon/</guid>
       <description>Lemon——一个使用rust实现的深度学习框架。 完成度：0%……</description>
     </item>
     
     <item>
       <title>Creation</title>
-      <link>https://mu94w.github.io/blog/2018/07/08/creation/</link>
+      <link>https://mu94w.github.io/blog/posts/creation/</link>
       <pubDate>Sun, 08 Jul 2018 11:43:31 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/07/08/creation/</guid>
+      <guid>https://mu94w.github.io/blog/posts/creation/</guid>
       <description>引用一段话： 最好的比喻应该是谈论时间和变化生成：它们应该是一种赞美，一种对所有短暂性的辩解！ 创造——这是对痛苦的巨大解脱，生存由此变得轻松。</description>
     </item>
     
     <item>
       <title>Boring</title>
-      <link>https://mu94w.github.io/blog/2018/07/07/boring/</link>
+      <link>https://mu94w.github.io/blog/posts/boring/</link>
       <pubDate>Sat, 07 Jul 2018 19:47:04 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/07/07/boring/</guid>
+      <guid>https://mu94w.github.io/blog/posts/boring/</guid>
       <description>近来和人交流很少，自感语言功能退化。 虽然没有几个月前那么焦虑，每天却空虚得很。 或许这才是我本来的生活状态——无意义，漫无目的。 不过我也许不该</description>
     </item>
     
     <item>
       <title>Tensorflow Golang Server</title>
-      <link>https://mu94w.github.io/blog/2018/04/16/tensorflow-golang-server/</link>
+      <link>https://mu94w.github.io/blog/posts/tensorflow-golang-server/</link>
       <pubDate>Mon, 16 Apr 2018 16:32:11 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/04/16/tensorflow-golang-server/</guid>
+      <guid>https://mu94w.github.io/blog/posts/tensorflow-golang-server/</guid>
       <description>这篇博文记录分享一下我在使用golang（以下简称Go）构建TensorFlow服务端方面的一些经验。 TensorFlow这里不多介绍了，相</description>
     </item>
     
     <item>
       <title>Thoughts About RNN and Causal CNN</title>
-      <link>https://mu94w.github.io/blog/2018/03/27/thoughts-about-rnn-and-causal-cnn/</link>
+      <link>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</link>
       <pubDate>Tue, 27 Mar 2018 16:45:48 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/03/27/thoughts-about-rnn-and-causal-cnn/</guid>
+      <guid>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</guid>
       <description>RNN和Causal CNN都可以作为序列生成网络的模块选择。 我最近用TensorFlow实现自回归Causal CNN时，想到可以用RNN的思</description>
     </item>
     
     <item>
       <title>Sum of Squares</title>
-      <link>https://mu94w.github.io/blog/2018/03/10/sum-of-squares/</link>
+      <link>https://mu94w.github.io/blog/posts/sum-of-squares/</link>
       <pubDate>Sat, 10 Mar 2018 14:40:29 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/03/10/sum-of-squares/</guid>
+      <guid>https://mu94w.github.io/blog/posts/sum-of-squares/</guid>
       <description>最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n+1)(2n+1)}{6} \] 这</description>
     </item>
     
     <item>
       <title>Python Logging Basic Tutorial</title>
-      <link>https://mu94w.github.io/blog/2018/03/04/python-logging-basic-tutorial/</link>
+      <link>https://mu94w.github.io/blog/posts/python-logging-basic-tutorial/</link>
       <pubDate>Sun, 04 Mar 2018 17:38:06 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/03/04/python-logging-basic-tutorial/</guid>
+      <guid>https://mu94w.github.io/blog/posts/python-logging-basic-tutorial/</guid>
       <description>Python的logging包提供了日志功能。 logging一般用于： 诊断日志 记录与应用程序操作相关的日志。例如，用户遇到的报错信息， 可通过</description>
     </item>
     
     <item>
       <title>免费高质量资源</title>
-      <link>https://mu94w.github.io/blog/2018/03/04/%E5%85%8D%E8%B4%B9%E9%AB%98%E8%B4%A8%E9%87%8F%E8%B5%84%E6%BA%90/</link>
+      <link>https://mu94w.github.io/blog/posts/free-resources/</link>
       <pubDate>Sun, 04 Mar 2018 15:50:10 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/03/04/%E5%85%8D%E8%B4%B9%E9%AB%98%E8%B4%A8%E9%87%8F%E8%B5%84%E6%BA%90/</guid>
+      <guid>https://mu94w.github.io/blog/posts/free-resources/</guid>
       <description>免费且高质量的资源（如图片、歌曲等）比较难找。这里列举一些站点，提供了这些资源 图片 https://unsplash.com/</description>
     </item>
     
     <item>
       <title>使用LaTeX进行论文写作 取代Word</title>
-      <link>https://mu94w.github.io/blog/2018/02/11/%E4%BD%BF%E7%94%A8latex%E8%BF%9B%E8%A1%8C%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C-%E5%8F%96%E4%BB%A3word/</link>
+      <link>https://mu94w.github.io/blog/posts/use-latex-for-paper-instead-of-word/</link>
       <pubDate>Sun, 11 Feb 2018 20:03:04 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/02/11/%E4%BD%BF%E7%94%A8latex%E8%BF%9B%E8%A1%8C%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C-%E5%8F%96%E4%BB%A3word/</guid>
+      <guid>https://mu94w.github.io/blog/posts/use-latex-for-paper-instead-of-word/</guid>
       <description>前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文</description>
     </item>
     

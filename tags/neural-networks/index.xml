@@ -13,10 +13,10 @@
     
     <item>
       <title>Thoughts About RNN and Causal CNN</title>
-      <link>https://mu94w.github.io/blog/2018/03/27/thoughts-about-rnn-and-causal-cnn/</link>
+      <link>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</link>
       <pubDate>Tue, 27 Mar 2018 16:45:48 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/2018/03/27/thoughts-about-rnn-and-causal-cnn/</guid>
+      <guid>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</guid>
       <description>RNN和Causal CNN都可以作为序列生成网络的模块选择。 我最近用TensorFlow实现自回归Causal CNN时，想到可以用RNN的思</description>
     </item>
     
