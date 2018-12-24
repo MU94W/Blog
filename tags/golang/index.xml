@@ -13,10 +13,10 @@
     
     <item>
       <title>Tensorflow Golang Server</title>
-      <link>https://mu94w.github.io/blog/posts/tensorflow-golang-server/</link>
+      <link>https://mu94w.github.io/blog/2018/04/16/tensorflow-golang-server/</link>
       <pubDate>Mon, 16 Apr 2018 16:32:11 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/posts/tensorflow-golang-server/</guid>
+      <guid>https://mu94w.github.io/blog/2018/04/16/tensorflow-golang-server/</guid>
       <description>这篇博文记录分享一下我在使用golang（以下简称Go）构建TensorFlow服务端方面的一些经验。 TensorFlow这里不多介绍了，相</description>
     </item>
     

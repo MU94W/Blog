@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Sinking ...  | Save Tensorflow Model for Serving</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.53" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    <link href='https://mu94w.github.io/blog/dist/main.css' rel='stylesheet' type="text/css" />
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Save Tensorflow Model for Serving" />
+<meta property="og:description" content="这篇文章探讨一下如何优雅地保存训练好的TensorFlow模型，使得服务端能够方便地调用模型。 一个简单的方法 首先介绍一个最简单的方法将模型保" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mu94w.github.io/blog/2018/09/21/save-tensorflow-model-for-serving/" /><meta property="article:published_time" content="2018-09-21T16:44:27&#43;08:00"/>
+<meta property="article:modified_time" content="2018-09-21T16:44:27&#43;08:00"/>
+
+<meta itemprop="name" content="Save Tensorflow Model for Serving">
+<meta itemprop="description" content="这篇文章探讨一下如何优雅地保存训练好的TensorFlow模型，使得服务端能够方便地调用模型。 一个简单的方法 首先介绍一个最简单的方法将模型保">
+
+
+<meta itemprop="datePublished" content="2018-09-21T16:44:27&#43;08:00" />
+<meta itemprop="dateModified" content="2018-09-21T16:44:27&#43;08:00" />
+<meta itemprop="wordCount" content="466">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Save Tensorflow Model for Serving"/>
+<meta name="twitter:description" content="这篇文章探讨一下如何优雅地保存训练好的TensorFlow模型，使得服务端能够方便地调用模型。 一个简单的方法 首先介绍一个最简单的方法将模型保"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://mu94w.github.io/blog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Sinking ...
+    </a>
+    <div class="flex-l items-center">
+      
+      
+
+
+
+
+
+
+
+  <a href="https://github.com/mu94w" class="link-transition github link dib z-999 pt3 pt0-l mr2" title="Github link">
+    <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+  </a>
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <p class="f6 b helvetica tracked">
+          POSTS
+        </p>
+        <h1 class="f1">
+          Save Tensorflow Model for Serving
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
+        
+
+<p>这篇文章探讨一下如何优雅地保存训练好的TensorFlow模型，使得服务端能够方便地调用模型。</p>
+
+<h2 id="一个简单的方法">一个简单的方法</h2>
+
+<p>首先介绍一个最简单的方法将模型保存为.pb文件。
+如果你使用的TensorFlow版本&gt;=1.6的话，可以使用这种方法。
+下面给出示例代码。</p>
+
+<script src="https://gist.github.com/MU94W/7f3bf4981c6f9a3d5b2f189bfbb68ebb.js"></script>
+
+<p>其中使用到了<a href="https://www.tensorflow.org/api_docs/python/tf/saved_model/simple_save"><code>tf.saved_model.simple_save</code></a>这个函数，该函数在TensorFlow &gt;= 1.6才有提供。
+<code>export_dir</code>变量表示导出模型文件夹路径。模型保存后，<code>export_dir</code>文件夹下的结构如下所示：</p>
+
+<pre><code>.
++-- saved_model.pb
++-- variables/
+|   +-- variables.data-?????-of-?????
+|   +-- variables.index
+</code></pre>
+
+<p>其中，<code>saved_model.pb</code>保存计算图，<code>variables/*</code>保存网络变量。</p>
+
+<p>使用这个模型的方法可见<a href="https://mu94w.github.io/blog/posts/tensorflow-golang-server/">另一篇文章</a>。</p>
+
+<p>那么，如果使用的TensorFlow版本&lt;1.6，或者想要更多地控制模型的导出行为，该怎么办呢？
+针对第一种情况，其实可以简单地把<code>simple_save</code>这个函数按照<code>tf.saved_model.simple_save</code>的写法自己写一遍来调用；
+而对于第二种，则需要了解更多保存细节。</p>
+
+<h2 id="更多的控制">更多的控制</h2>
+
+<h2 id="如何将图的变量转为常量保存">如何将图的变量转为常量保存？</h2>
+
+      </div>
+    </article>
+    <aside class="ph3 mt2 mt6-ns">
+      
+
+
+
+
+
+
+
+  <div class="bg-light-gray pa3">
+    <ul>
+      <li class="list b mb3">
+        9 More Posts
+      </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/09/21/save-tensorflow-model-for-serving/" class="link ph2 pv2 db black o-50">
+            Save Tensorflow Model for Serving
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/08/22/lemon/" class="link ph2 pv2 db black">
+            Lemon
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/07/08/creation/" class="link ph2 pv2 db black">
+            Creation
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/07/07/boring/" class="link ph2 pv2 db black">
+            Boring
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/04/16/tensorflow-golang-server/" class="link ph2 pv2 db black">
+            Tensorflow Golang Server
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/03/27/thoughts-about-rnn-and-causal-cnn/" class="link ph2 pv2 db black">
+            Thoughts About RNN and Causal CNN
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/03/10/sum-of-squares/" class="link ph2 pv2 db black">
+            Sum of Squares
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/03/04/python-logging-basic-tutorial/" class="link ph2 pv2 db black">
+            Python Logging Basic Tutorial
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/03/04/%E5%85%8D%E8%B4%B9%E9%AB%98%E8%B4%A8%E9%87%8F%E8%B5%84%E6%BA%90/" class="link ph2 pv2 db black">
+            免费高质量资源
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="https://mu94w.github.io/blog/2018/02/11/%E4%BD%BF%E7%94%A8latex%E8%BF%9B%E8%A1%8C%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C-%E5%8F%96%E4%BB%A3word/" class="link ph2 pv2 db black">
+            使用LaTeX进行论文写作 取代Word
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+    </aside>
+  </div>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://mu94w.github.io/blog/" >
+    &copy; 2018 Sinking ...
+  </a>
+  
+
+
+
+
+
+
+
+  <a href="https://github.com/mu94w" class="link-transition github link dib z-999 pt3 pt0-l mr2" title="Github link">
+    <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+  </a>
+
+
+  </div>
+</footer>
+
+    <script src="https://mu94w.github.io/blog/dist/app.bundle.js" async></script>
+
+  </body>
+</html>
