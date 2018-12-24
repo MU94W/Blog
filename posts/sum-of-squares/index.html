@@ -49,7 +49,7 @@
 
 <meta itemprop="datePublished" content="2018-03-10T14:40:29&#43;08:00" />
 <meta itemprop="dateModified" content="2018-03-10T14:40:29&#43;08:00" />
-<meta itemprop="wordCount" content="488">
+<meta itemprop="wordCount" content="592">
 
 
 
@@ -120,7 +120,9 @@
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 <p>最近做<a href="https://projecteuler.net">Project Euler</a>，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。
@@ -151,11 +153,20 @@
     \end{eqnarray} \]</p>
 
 <p>\[ \begin{eqnarray}
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         S(n) &amp;=&amp; \frac{n^3}{3} + \frac{n(n+1)}{2} - \frac{n}{3} \\<br />
              &amp;=&amp; \frac{n(n+1)(2n+1)}{6}
     \end{eqnarray} \]</p>
 
-<p>上面这几行推导，核心在于\(\delta(k)\)这项，这项将离散求和和连续积分联系了起来。在推导过程中，可以看到这项将当前数列的幂次降低了1，因此就可以利用自然数列求和公式了。
+<h1 id="上面这几行推导-核心在于-delta-k-这项-这项将离散求和和连续积分联系了起来-在推导过程中-可以看到这项将当前数列的幂次降低了1-因此就可以利用自然数列求和公式了">上面这几行推导，核心在于\(\delta(k)\)这项，这项将离散求和和连续积分联系了起来。在推导过程中，可以看到这项将当前数列的幂次降低了1，因此就可以利用自然数列求和公式了。</h1>
+
+<pre><code>    S(n) &amp;=&amp; \frac{n^3}{3} + \frac{n(n+1)}{2} - \frac{n}{3}
+         &amp;=&amp; \frac{n(n+1)(2n+1)}{6}
+\end{eqnarray} \\]
+</code></pre>
+
+<p>上面这几行推导，核心在于\[\delta(k)\]这项，这项将离散求和和连续积分联系了起来。在推导过程中，可以看到这项将当前数列的幂次降低了1，因此就可以利用自然数列求和公式了。
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 253bc5d38c25c98329b0523b5bbce998e0f13d0d
 更高次幂的数列求和也可以按照这样的思路做，只会多用到一点点<a href="https://en.wikipedia.org/wiki/Combination">组合数</a>的知识:P</p>
 
 <p>试试在纸上画出来吧，可以看得更清楚。后面有时间我会把解释用的图放上来。</p>
