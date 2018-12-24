@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python Logging Basic Tutorial - Sinking ...</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="nanqiao15" /><meta name="description" content="Python的logging包提供了日志功能。 logging一般用于： 诊断日志 记录与应用程序操作相关的日志。例如，用户遇到的报错信息， 可通过" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://mu94w.github.io/blog/post/python-logging-basic-tutorial/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Python Logging Basic Tutorial" />
+<meta property="og:description" content="Python的logging包提供了日志功能。 logging一般用于： 诊断日志 记录与应用程序操作相关的日志。例如，用户遇到的报错信息， 可通过" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mu94w.github.io/blog/post/python-logging-basic-tutorial/" /><meta property="article:published_time" content="2018-03-04T17:38:06&#43;08:00"/>
+<meta property="article:modified_time" content="2018-03-04T17:38:06&#43;08:00"/>
+
+<meta itemprop="name" content="Python Logging Basic Tutorial">
+<meta itemprop="description" content="Python的logging包提供了日志功能。 logging一般用于： 诊断日志 记录与应用程序操作相关的日志。例如，用户遇到的报错信息， 可通过">
+
+
+<meta itemprop="datePublished" content="2018-03-04T17:38:06&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-04T17:38:06&#43;08:00" />
+<meta itemprop="wordCount" content="1190">
+
+
+
+<meta itemprop="keywords" content="python,logging," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python Logging Basic Tutorial"/>
+<meta name="twitter:description" content="Python的logging包提供了日志功能。 logging一般用于： 诊断日志 记录与应用程序操作相关的日志。例如，用户遇到的报错信息， 可通过"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Sinking ...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Sinking ...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python Logging Basic Tutorial</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-03-04 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>Python的logging包提供了日志功能。</p>
+
+<p><a href="http://pythonguidecn.readthedocs.io/zh/latest/writing/logging.html">logging一般用于</a>：</p>
+
+<blockquote>
+<p><strong>诊断日志</strong> 记录与应用程序操作相关的日志。例如，用户遇到的报错信息， 可通过搜索诊断日志获得上下文信息。</p>
+
+<p><strong>审计日志</strong> 为商业分析而记录的日志。从审计日志中，可提取用户的交易信息， 并结合其他用户资料构成用户报告或者用来优化商业目标。</p>
+</blockquote>
+
+<p>下面介绍其<a href="https://docs.python.org/3.6/howto/logging.html#logging-basic-tutorial">基本使用方法</a>。
+logging记录的日志是分级别的。按照严重程度从低到高排列为 <em>DEBUG</em> ， <em>INFO</em> ， <em>WARNING</em> ， <em>ERROR</em> ， <em>CRITICAL</em> 。
+下表展示了各级别日志的用途。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">级别</th>
+<th>用途</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">DEBUG</td>
+<td>用于诊断程序时。</td>
+</tr>
+
+<tr>
+<td align="center">INFO</td>
+<td>确认工作如预期一样进行。</td>
+</tr>
+
+<tr>
+<td align="center">WARNING</td>
+<td>提醒未预料到的事情发生，或者将要发生什么问题。程序还是会正常运行下去。</td>
+</tr>
+
+<tr>
+<td align="center">ERROR</td>
+<td>由于某个严重的问题，程序不能执行某些函数。</td>
+</tr>
+
+<tr>
+<td align="center">CRITICAL</td>
+<td>程序出错，不能继续运行下去。</td>
+</tr>
+</tbody>
+</table>
+
+<p>logging输出的级别默认为 <em>WARNING</em> 。</p>
+
+<p>一个最简单的例子
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&#34;将会输出&#34;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;这条不会显示&#34;</span><span class="p">)</span>  <span class="c1"># 因为默认级别是 WARNING</span></code></pre></td></tr></table>
+</div>
+</div>
+将会显示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">WARNING:root:将会输出</pre></td></tr></table>
+</div>
+</div>
+<p>下面这个例子通过<code>logging.basicConfig</code>函数配置logging的日志文件和级别。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example.log&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;这条信息会显示到example.log&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;这条也是&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;这条同样&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;同样显示&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;也会显示&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+文件打开的模式默认是<code>append</code>，可以通过给<code>logging.basicConfig</code>传入<code>filemode</code>参数控制。
+例如，
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example.log&#39;</span><span class="p">,</span> <span class="n">filemode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+在每次运行时，都会覆盖以前的日志文件。</p>
+
+<p>如果代码包含其他模块，而其他模块也需要logging，下面的方法可以供以参考。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># main program</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">mylib</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Started&#39;</span><span class="p">)</span>
+    <span class="n">mylib</span><span class="o">.</span><span class="n">do_something</span><span class="p">()</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Finished&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;main&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># mylib.py</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="k">def</span> <span class="nf">do_something</span><span class="p">():</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Doing something&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+将会显示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">INFO:root:Started
+INFO:root:Doing something
+INFO:root:Finished</pre></td></tr></table>
+</div>
+</div>
+<p>通过给<code>logging.basicConfig</code>传入<code>format</code>参数可以改变日志信息的格式。
+例如，
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;hello, debug!&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+将会显示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">2018-03-04 19:53:35,697 DEBUG: hello, debug!</pre></td></tr></table>
+</div>
+</div>
+<p>其中的<code>asctime</code>可以通过传入<code>datefmt</code>参数进一步控制时间的显示。其格式和<a href="https://docs.python.org/3.6/library/time.html#time.strftime">time.strftime()</a>的一样。
+例如，
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%m/</span><span class="si">%d</span><span class="s1">/%Y %I:%M:%S %p&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;is when this event was logged.&#39;</span><span class="p">)</span></code></pre></td></tr></table>
+</div>
+</div>
+将会显示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">03/04/2018 07:56:36 PM is when this event was logged.</pre></td></tr></table>
+</div>
+</div>
+<h2 id="总结">总结</h2>
+
+<ul>
+<li>import logging</li>
+<li>logging.basicConfig() 配置logging
+
+<ul>
+<li><em>Args</em></li>
+<li>filename: 日志文件路径，默认为<code>sys.stderr</code>。</li>
+<li>filemode: 文件写入模式，<code>{'w'， 'a'}</code>。</li>
+<li>level: 日志级别，按严重程度从低到高为  <em>DEBUG</em> ， <em>INFO</em> ， <em>WARNING</em> ， <em>ERROR</em> ， <em>CRITICAL</em> 。默认为<code>logging.WARNING</code>。</li>
+<li>format: 记录输出格式，可定制的几个基本对象是
+
+<ul>
+<li>asctime: 适合人阅读的时间格式。</li>
+<li>levelname: 记录级别。</li>
+<li>message: 具体记录信息。</li>
+</ul></li>
+<li>datefmt: 控制<code>asctime</code>的输出格式，例如<code>'%m/%d/%Y %I:%M:%S %p'</code>。其格式和<a href="https://docs.python.org/3.6/library/time.html#time.strftime">time.strftime()</a>的一样。</li>
+</ul></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">nanqiao15</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-03-04</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/blog/tags/python/">python</a>
+          <a href="/blog/tags/logging/">logging</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/sum-of-squares/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Sum of Squares</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/blog/post/free-resources/">
+            <span class="next-text nav-default">免费高质量资源</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:nanqiao15@126.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://mu94w.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">nanqiao15</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

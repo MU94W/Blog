@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Latex on Sinking ...</title>
+    <title>LaTex on Sinking ...</title>
     <link>https://mu94w.github.io/blog/tags/latex/</link>
-    <description>Recent content in Latex on Sinking ...</description>
+    <description>Recent content in LaTex on Sinking ...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Sun, 11 Feb 2018 20:03:04 +0800</lastBuildDate>
     
 	<atom:link href="https://mu94w.github.io/blog/tags/latex/index.xml" rel="self" type="application/rss+xml" />
@@ -13,10 +13,10 @@
     
     <item>
       <title>使用LaTeX进行论文写作 取代Word</title>
-      <link>https://mu94w.github.io/blog/posts/use-latex-for-paper-instead-of-word/</link>
+      <link>https://mu94w.github.io/blog/post/use-latex-for-paper-instead-of-word/</link>
       <pubDate>Sun, 11 Feb 2018 20:03:04 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/posts/use-latex-for-paper-instead-of-word/</guid>
+      <guid>https://mu94w.github.io/blog/post/use-latex-for-paper-instead-of-word/</guid>
       <description>前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文</description>
     </item>
     

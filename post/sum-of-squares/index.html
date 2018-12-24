@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Sum of Squares - Sinking ...</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="nanqiao15" /><meta name="description" content="最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n&#43;1)(2n&#43;1)}{6} \] 这" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://mu94w.github.io/blog/post/sum-of-squares/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Sum of Squares" />
+<meta property="og:description" content="最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n&#43;1)(2n&#43;1)}{6} \] 这" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mu94w.github.io/blog/post/sum-of-squares/" /><meta property="article:published_time" content="2018-03-10T14:40:29&#43;08:00"/>
+<meta property="article:modified_time" content="2018-03-10T14:40:29&#43;08:00"/>
+
+<meta itemprop="name" content="Sum of Squares">
+<meta itemprop="description" content="最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n&#43;1)(2n&#43;1)}{6} \] 这">
+
+
+<meta itemprop="datePublished" content="2018-03-10T14:40:29&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-10T14:40:29&#43;08:00" />
+<meta itemprop="wordCount" content="629">
+
+
+
+<meta itemprop="keywords" content="mathmatics," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sum of Squares"/>
+<meta name="twitter:description" content="最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n&#43;1)(2n&#43;1)}{6} \] 这"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Sinking ...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Sinking ...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Sum of Squares</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-03-10 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#上面这几行推导-核心在于-delta-k-这项-这项将离散求和和连续积分联系了起来-在推导过程中-可以看到这项将当前数列的幂次降低了1-因此就可以利用自然数列求和公式了">上面这几行推导，核心在于\(\delta(k)\)这项，这项将离散求和和连续积分联系了起来。在推导过程中，可以看到这项将当前数列的幂次降低了1，因此就可以利用自然数列求和公式了。</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<p>最近做<a href="https://projecteuler.net">Project Euler</a>，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。
+\[ \sum_{k=1}^{n} k^{2} = \frac{n(n+1)(2n+1)}{6} \]
+这个公式不像自然数列的和那样简单直接，可以通过所谓的<a href="https://zh.wikipedia.org/wiki/%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97">高斯求和</a>快速得出。
+事实上，自然数的平方序列，距离首尾各k个位置的两个数的和并不是一个常数（针对该数列而言）。因此，我想高斯也不能一眼看出来答案:P</p>
+
+<p>正发愁，突然想到离散求和积分间的关系，便尝试用<a href="https://en.wikipedia.org/wiki/Calculus">微积分</a>来解决。事实证明，这个思路不仅可以解决平方和问题，还可以解决更高幂次数列求和问题:）</p>
+
+<p>\[ S(n) = \sum_{k=1}^{n} a(k), where: a(k) = k^2 \]</p>
+
+<p>\[ S(n) = P(n) + Q(n) \]</p>
+
+<p>\[ P(n) = \int_0^n a(x) dx \]</p>
+
+<p>\[ Q(n) = \sum_{k=1}^{n} \delta(k), where: \delta(k) = a(k) - (P(k) - P(k-1)) \]</p>
+
+<p>\[ P(n) = \frac{n^3}{3} \]</p>
+
+<p>\[ \begin{eqnarray}
+        \delta(k) &amp;=&amp; k^2 - \frac{k^3}{3} + \frac{(k-1)^3}{3}
+                  &amp;=&amp; k-\frac{1}{3}
+    \end{eqnarray} \]</p>
+
+<p>\[ \begin{eqnarray}
+        Q(n) &amp;=&amp; \sum_{k=1}^{n} k-\frac{1}{3}
+             &amp;=&amp; \frac{n(n+1)}{2} - \frac{n}{3}
+    \end{eqnarray} \]</p>
+
+<p>\[ \begin{eqnarray}
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+        S(n) &amp;=&amp; \frac{n^3}{3} + \frac{n(n+1)}{2} - \frac{n}{3} \\<br />
+             &amp;=&amp; \frac{n(n+1)(2n+1)}{6}
+    \end{eqnarray} \]</p>
+
+<h1 id="上面这几行推导-核心在于-delta-k-这项-这项将离散求和和连续积分联系了起来-在推导过程中-可以看到这项将当前数列的幂次降低了1-因此就可以利用自然数列求和公式了">上面这几行推导，核心在于\(\delta(k)\)这项，这项将离散求和和连续积分联系了起来。在推导过程中，可以看到这项将当前数列的幂次降低了1，因此就可以利用自然数列求和公式了。</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">    S(n) &amp;=&amp; \frac{n^3}{3} + \frac{n(n+1)}{2} - \frac{n}{3}
+         &amp;=&amp; \frac{n(n+1)(2n+1)}{6}
+\end{eqnarray} \\]</pre></td></tr></table>
+</div>
+</div>
+<p>上面这几行推导，核心在于\[\delta(k)\]这项，这项将离散求和和连续积分联系了起来。在推导过程中，可以看到这项将当前数列的幂次降低了1，因此就可以利用自然数列求和公式了。
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 253bc5d38c25c98329b0523b5bbce998e0f13d0d
+更高次幂的数列求和也可以按照这样的思路做，只会多用到一点点<a href="https://en.wikipedia.org/wiki/Combination">组合数</a>的知识:P</p>
+
+<p>试试在纸上画出来吧，可以看得更清楚。后面有时间我会把解释用的图放上来。</p>
+
+<p>虽然这种简单的推导前人做过了（不过我在网上还没有找到相关链接），弄出来还是很开心的XD</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">nanqiao15</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-03-10</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/blog/tags/mathmatics/">mathmatics</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/thoughts-about-rnn-and-causal-cnn/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Thoughts About RNN and Causal CNN</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/blog/post/python-logging-basic-tutorial/">
+            <span class="next-text nav-default">Python Logging Basic Tutorial</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:nanqiao15@126.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://mu94w.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">nanqiao15</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

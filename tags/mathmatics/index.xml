@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mathmatics on Sinking ...</title>
+    <title>mathmatics on Sinking ...</title>
     <link>https://mu94w.github.io/blog/tags/mathmatics/</link>
-    <description>Recent content in Mathmatics on Sinking ...</description>
+    <description>Recent content in mathmatics on Sinking ...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Sat, 10 Mar 2018 14:40:29 +0800</lastBuildDate>
     
 	<atom:link href="https://mu94w.github.io/blog/tags/mathmatics/index.xml" rel="self" type="application/rss+xml" />
@@ -13,10 +13,10 @@
     
     <item>
       <title>Sum of Squares</title>
-      <link>https://mu94w.github.io/blog/posts/sum-of-squares/</link>
+      <link>https://mu94w.github.io/blog/post/sum-of-squares/</link>
       <pubDate>Sat, 10 Mar 2018 14:40:29 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/posts/sum-of-squares/</guid>
+      <guid>https://mu94w.github.io/blog/post/sum-of-squares/</guid>
       <description>最近做Project Euler，遇到了需要求平方和的问题。虽然还记得起高中背过的这个公式，但一直没有想过他是怎么被推导出来的。 \[ \sum_{k=1}^{n} k^{2} = \frac{n(n+1)(2n+1)}{6} \] 这</description>
     </item>
     

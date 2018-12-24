@@ -1,164 +1,164 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml-stylesheet type="text/xsl" href="https://mu94w.github.io/blog/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/save-tensorflow-model-for-serving/</loc>
+    <loc>https://mu94w.github.io/blog/post/save-tensorflow-model-for-serving/</loc>
     <lastmod>2018-09-21T16:44:27+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/lemon/</loc>
+    <loc>https://mu94w.github.io/blog/post/lemon/</loc>
     <lastmod>2018-08-22T16:26:07+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/creation/</loc>
+    <loc>https://mu94w.github.io/blog/post/creation/</loc>
     <lastmod>2018-07-08T11:43:31+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/boring/</loc>
+    <loc>https://mu94w.github.io/blog/post/boring/</loc>
     <lastmod>2018-07-07T19:47:04+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/tensorflow-golang-server/</loc>
+    <loc>https://mu94w.github.io/blog/post/tensorflow-golang-server/</loc>
     <lastmod>2018-04-16T16:32:11+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/thoughts-about-rnn-and-causal-cnn/</loc>
+    <loc>https://mu94w.github.io/blog/post/thoughts-about-rnn-and-causal-cnn/</loc>
     <lastmod>2018-03-27T16:45:48+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/sum-of-squares/</loc>
+    <loc>https://mu94w.github.io/blog/post/sum-of-squares/</loc>
     <lastmod>2018-03-10T14:40:29+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/python-logging-basic-tutorial/</loc>
+    <loc>https://mu94w.github.io/blog/post/python-logging-basic-tutorial/</loc>
     <lastmod>2018-03-04T17:38:06+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/free-resources/</loc>
+    <loc>https://mu94w.github.io/blog/post/free-resources/</loc>
     <lastmod>2018-03-04T15:50:10+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/posts/use-latex-for-paper-instead-of-word/</loc>
+    <loc>https://mu94w.github.io/blog/post/use-latex-for-paper-instead-of-word/</loc>
     <lastmod>2018-02-11T20:03:04+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://mu94w.github.io/blog/categories/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mu94w.github.io/blog/tags/free/</loc>
-    <lastmod>2018-03-04T15:50:10+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mu94w.github.io/blog/tags/golang/</loc>
-    <lastmod>2018-04-16T16:32:11+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mu94w.github.io/blog/tags/latex/</loc>
     <lastmod>2018-02-11T20:03:04+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mu94w.github.io/blog/tags/logging/</loc>
-    <lastmod>2018-03-04T17:38:06+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mu94w.github.io/blog/tags/mathmatics/</loc>
-    <lastmod>2018-03-10T14:40:29+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mu94w.github.io/blog/tags/neural-networks/</loc>
-    <lastmod>2018-03-27T16:45:48+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mu94w.github.io/blog/posts/</loc>
+    <loc>https://mu94w.github.io/blog/post/</loc>
     <lastmod>2018-09-21T16:44:27+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mu94w.github.io/blog/tags/python/</loc>
-    <lastmod>2018-03-04T17:38:06+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://mu94w.github.io/blog/tags/resources/</loc>
-    <lastmod>2018-03-04T15:50:10+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mu94w.github.io/blog/</loc>
     <lastmod>2018-09-21T16:44:27+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mu94w.github.io/blog/tags/</loc>
-    <lastmod>2018-03-04T15:50:10+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2018-02-11T20:03:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mu94w.github.io/blog/tags/tensorflow/</loc>
     <lastmod>2018-04-16T16:32:11+08:00</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mu94w.github.io/blog/tags/free/</loc>
+    <lastmod>2018-03-04T15:50:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mu94w.github.io/blog/tags/golang/</loc>
+    <lastmod>2018-04-16T16:32:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mu94w.github.io/blog/tags/logging/</loc>
+    <lastmod>2018-03-04T17:38:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mu94w.github.io/blog/tags/mathmatics/</loc>
+    <lastmod>2018-03-10T14:40:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mu94w.github.io/blog/tags/neural-networks/</loc>
+    <lastmod>2018-03-27T16:45:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mu94w.github.io/blog/tags/python/</loc>
+    <lastmod>2018-03-04T17:38:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://mu94w.github.io/blog/tags/resources/</loc>
+    <lastmod>2018-03-04T15:50:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   

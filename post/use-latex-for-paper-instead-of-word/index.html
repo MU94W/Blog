@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用LaTeX进行论文写作 取代Word - Sinking ...</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="nanqiao15" /><meta name="description" content="前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.53 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://mu94w.github.io/blog/post/use-latex-for-paper-instead-of-word/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png">
+<link rel="manifest" href="/blog/manifest.json">
+<link rel="mask-icon" href="/blog/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/blog/dist/even.93844dae.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用LaTeX进行论文写作 取代Word" />
+<meta property="og:description" content="前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mu94w.github.io/blog/post/use-latex-for-paper-instead-of-word/" /><meta property="article:published_time" content="2018-02-11T20:03:04&#43;08:00"/>
+<meta property="article:modified_time" content="2018-02-11T20:03:04&#43;08:00"/>
+
+<meta itemprop="name" content="使用LaTeX进行论文写作 取代Word">
+<meta itemprop="description" content="前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文">
+
+
+<meta itemprop="datePublished" content="2018-02-11T20:03:04&#43;08:00" />
+<meta itemprop="dateModified" content="2018-02-11T20:03:04&#43;08:00" />
+<meta itemprop="wordCount" content="1250">
+
+
+
+<meta itemprop="keywords" content="LaTex," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用LaTeX进行论文写作 取代Word"/>
+<meta name="twitter:description" content="前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题： 虽然利用各种可视化的按钮也能让文"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/" class="logo">Sinking ...</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/blog/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/blog/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/blog/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/blog/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/blog/" class="logo">Sinking ...</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/blog/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/blog/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用LaTeX进行论文写作 取代Word</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-02-11 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#在mac上安装latex">在Mac上安装LaTeX</a></li>
+<li><a href="#使用vs-code编辑latex文档">使用VS Code编辑LaTeX文档</a>
+<ul>
+<li><a href="#文档有unicode字符怎么办">文档有Unicode字符怎么办？</a></li>
+<li><a href="#跨栏图片">跨栏图片</a></li>
+<li><a href="#多行注释">多行注释</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>前段时间修改论文，尝试了使用LaTeX重新进行排版。之前一直使用MS Word，在我看来，它有以下这些问题：</p>
+
+<ul>
+<li>虽然利用各种可视化的按钮也能让文章的排版很漂亮——在精细调整下，尤其是图形大小和位置；但很费劲。</li>
+<li>虽然使用Word模板减少工作量，而且会议一般提供Word论文模板；但模板所使用的Word版本通常很老(2003版)，和流行的Word版本兼容性不好。</li>
+<li>另外，在Mac上使用MS Word编辑更是一种痛苦——Mac版的Word不稳定，在编辑复杂的文档时常崩溃。</li>
+</ul>
+
+<p>当然使用LaTeX写的话，要是自己控制每一个细节，也很费心力；但是使用会议提供的LaTeX模板比使用Word模板更省心，而且在Mac上也更稳定。</p>
+
+<p>下面是一些我在Mac上使用LaTeX的经验。</p>
+
+<h2 id="在mac上安装latex">在Mac上安装LaTeX</h2>
+
+<p><a href="https://www.latex-project.org/get/#tex-distributions">LaTeX</a>网站上有对应不同操作系统的LaTeX软件可供下载。
+在Mac上使用，我推荐下载完整版的<a href="http://www.tug.org/mactex/mactex-download.html">MacTeX</a>。不过要提醒一下，完整版的大小有~3GB。下载下来后，安装很简单，按照提示就好了。</p>
+
+<h2 id="使用vs-code编辑latex文档">使用VS Code编辑LaTeX文档</h2>
+
+<p>将编辑好的LaTeX文档转换为pdf文档需要进行编译的操作。TeXShop是完整版的LaTeX自带的一款编辑LaTeX的GUI软件，写好文本文件后，按几个按钮就可以得到排版好的pdf文件。
+但是我实在是习惯了vim的编辑模式，不习惯一边编辑一边使用触摸板。而只用Vim编辑LaTeX文档，编译输出pdf又比较麻烦，因此我选择了<a href="https://code.visualstudio.com">VS Code</a>来编辑LaTeX文档。</p>
+
+<p>VS Code是一款可扩展功能的文本编辑器，有丰富的第三方插件可以使用。我安装了Vim扩展插件来模拟Vim的编辑模式，又另外安装了一个管理LaTeX编译链的工具——LaTeX Workshop。这两款插件都可以在编辑器侧边栏的“扩展”里搜索到。</p>
+
+<p>LaTeX Workshop编译LaTeX文件的默认配置存放在VS Code的Preference里面，可以按<code>Cmd + ,</code>打开。
+<figure>
+    <img src="/images/use-latex-for-paper-instead-of-word-1.png"/> 
+</figure>
+
+<figure>
+    <img src="/images/use-latex-for-paper-instead-of-word-2.png"/> 
+</figure>
+</p>
+
+<p>编辑好文档后，可以通过按下<code>Cmd + shift + p</code>，执行<code>LaTeX Workshop: Build LaTeX project</code>命令，调用LaTeX Workshop的编译链来完成编译。</p>
+
+<h3 id="文档有unicode字符怎么办">文档有Unicode字符怎么办？</h3>
+
+<p>在文档的头部加入<code>\usepackage[utf8]{inputenc}</code>这一行，就能够处理Unicode字符了。</p>
+
+<h3 id="跨栏图片">跨栏图片</h3>
+
+<p>将<code>\begin{figure} ... \end{figure}</code>改为<code>\begin{figure*} ... \end{figure*}</code>即可（只需要加上两个<code>*</code>号）。
+另外，单栏图片的宽度我通常定为3.5in，双栏则为7in。</p>
+
+<h3 id="多行注释">多行注释</h3>
+
+<p>我们常会遇到需要注释多行的需求，而使用<code>%</code>这个单行注释符完成这项任务比较麻烦——主要体现在取消注释时。
+在文档的头部加入<code>\usepackage{verbatim}</code>这一行，我们便可以进行多行注释了。
+具体的用法是，在想要注释的一段的前后加入分别加上<code>\begin{comment}</code>和<code>\end{comment}</code>这两行即可。想要取消多行注释时，只需要用<code>%</code>注释掉这两汉就可以啦。</p>
+
+<!-- ### 开启synctex 更方便修改 -->
+
+<p>暂时介绍到这里，以后会记录分享更多经验~ :P</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">nanqiao15</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-02-11</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/blog/tags/latex/">LaTex</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/blog/post/free-resources/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">免费高质量资源</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:nanqiao15@126.com" class="iconfont icon-email" title="email"></a>
+  <a href="https://mu94w.github.io/blog/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2018
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">nanqiao15</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/blog/dist/even.ece58db6.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

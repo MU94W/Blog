@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tensorflow on Sinking ...</title>
+    <title>TensorFlow on Sinking ...</title>
     <link>https://mu94w.github.io/blog/tags/tensorflow/</link>
-    <description>Recent content in Tensorflow on Sinking ...</description>
+    <description>Recent content in TensorFlow on Sinking ...</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Mon, 16 Apr 2018 16:32:11 +0800</lastBuildDate>
     
 	<atom:link href="https://mu94w.github.io/blog/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
@@ -13,10 +13,10 @@
     
     <item>
       <title>Tensorflow Golang Server</title>
-      <link>https://mu94w.github.io/blog/posts/tensorflow-golang-server/</link>
+      <link>https://mu94w.github.io/blog/post/tensorflow-golang-server/</link>
       <pubDate>Mon, 16 Apr 2018 16:32:11 +0800</pubDate>
       
-      <guid>https://mu94w.github.io/blog/posts/tensorflow-golang-server/</guid>
+      <guid>https://mu94w.github.io/blog/post/tensorflow-golang-server/</guid>
       <description>这篇博文记录分享一下我在使用golang（以下简称Go）构建TensorFlow服务端方面的一些经验。 TensorFlow这里不多介绍了，相</description>
     </item>
     

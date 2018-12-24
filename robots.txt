@@ -1,5 +1,2 @@
 User-agent: *
-# robotstxt.org - if ENV production variable is false robots will be disallowed.
-
-  Disallow: /
-
+Sitemap: https://mu94w.github.io/blog/sitemap.xml
