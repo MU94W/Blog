@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mu94w.github.io/blog/post/jingang/</loc>
+    <lastmod>2019-07-31T19:44:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://mu94w.github.io/blog/post/mind/</loc>
     <lastmod>2019-02-23T14:49:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -94,14 +101,14 @@
   
   <url>
     <loc>https://mu94w.github.io/blog/post/</loc>
-    <lastmod>2019-02-23T14:49:13+08:00</lastmod>
+    <lastmod>2019-07-31T19:44:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://mu94w.github.io/blog/</loc>
-    <lastmod>2019-02-23T14:49:13+08:00</lastmod>
+    <lastmod>2019-07-31T19:44:57+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
